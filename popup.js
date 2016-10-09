@@ -33,7 +33,22 @@ var charities = {
 }
 
 var urls = {
-	'redcross.org' : ['http://www.doctorswithoutborders.org/', 'https://www.hands.org/', 'http://haiti.communitere.org/'],
+	'redcross.org' : ['http://www.doctorswithoutborders.org/'],// 'https://www.hands.org/', 'http://haiti.communitere.org/'],
+	'autismspeaks.org' : ['http://www.researchautism.org/'],
+	'komen.org' : ['http://www.lbbc.org/'],
+	'kidswishnetwork.org' : ['http://wish.org/#sm.000180jnl3pvndi0zmo12lxldp7zd'],
+	'nvsf.org' : ['http://www.militaryfamily.org/'],
+	'childrenscharityfund.org' : ['https://www.centerforenrichedliving.org/'],
+	'ffcf.org' : ['http://www.firehero.org/'],
+	'findthekids.org' : ['http://www.missingkids.com/home'],
+	'cancersurvivorsfund.org' : ['https://netrf.org/'],
+	'spcai.org' : ['http://www.awanj.org/'],
+	'peta.org' : ['http://www.lcanimal.org/'],
+	'clintonfoundation.org' : ['http://www.gatesfoundation.org/'],
+	'salvationarmyusa.org' : ['http://www.goodwill.org/'],
+	'pva.org' : ['http://themedalofhonor.com/'],
+	'diabetes.org' : ['http://www.nb3foundation.org/'],
+	'worldwildlife.org' : ['http://www.awildfound.org/']
 }
 
 function renderStatus1(statusText1) {
@@ -86,7 +101,7 @@ window.onload =  function(myUrl) {
 		});
 		/*document.getElementById('alternative2').addEventListener('click', function() {
 			chrome.tabs.create({ url : urls[x][1]});
-		});
+		}); 
 		document.getElementById('alternative3').addEventListener('click', function() {
 			chrome.tabs.create({ url :urls[x][2]});
 		});*/
