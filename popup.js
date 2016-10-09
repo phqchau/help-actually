@@ -14,7 +14,7 @@ function getCurrentTabUrl(callback) {
 }
 
 var charities = {
-  'redcross.org' : ['The American Red Cross', '2'],
+  'redcross.org' : ['The American Red Cross', '3', 'Doctors Without Borders',  'All Hands Volunteers', ' Haiti Communitiere'],
   'autismspeaks.org' : 'Autism Speaks',
   'komen.org' : 'Susan G Komen for the Cure',
   'kidswishnetwork.org' : 'Kids Wish Network',
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
     for (var x in charities) {
       if (url.indexOf(x) !== -1) {
-        renderStatus('Organization name is ' + charities[x][0] '\nIt\'s rating is' + charities[x][1] );
+        renderStatus('Organization name:\n' + charities[x][0] + '\nCharity Navigator Ranking:\n' + charities[x][1]);
         break;
       }
       renderStatus('This charity is not in our database!');
