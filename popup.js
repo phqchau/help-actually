@@ -8,7 +8,7 @@ function getCurrentTabUrl(callback) {
     var tab = tabs[0];
     var myUrl = tab.url;
 	console.assert(typeof myUrl == 'string', 'tab.url should be a string');
-	
+
     callback(myUrl);
   });
 }
@@ -83,6 +83,38 @@ function renderTitle3(title3) {
   document.getElementById('title3').textContent = title3;
 }
 
+function getImageUrl(searchTerm, callback, errorCallback) {
+  var searchUrl = 'https://www.googleapis.com/customsearch/v1?key=' +
+    'AIzaSyAMoq_eJliMHWoApPlUQtXW7ht37WSt4ak&cx=017750922335923786184:5et74q44yxi&q=' + encodeURIComponent(searchTerm) + '&searchType=image';
+  var x = new XMLHttpRequest();
+  x.open('GET', searchUrl);
+  x.responseType = 'json';
+  x.onload = function() {
+    var response = x.response;
+    if (!response || response.items.length === 0) {
+      errorCallback('No response from Google Image search!');
+      return;
+    }
+    if (searchTerm === 'World Wildlife Fund' || searchTerm === 'Firefighter\'s Charitable Foundation') {
+      var firstResult = response.items[4];
+    } else if (searchTerm === 'Autism Speaks' || searchTerm === 'Susan G Komen for the Cure' || searchTerm === 'Cancer Survivors\' Fund') {
+      var firstResult = response.items[1];
+    } else if (searchTerm === 'People for the Ethical Treatment of Animals (PETA)') {
+      var firstResult = response.items[3];
+    } else {
+      var firstResult = response.items[0];
+    };
+    var imageUrl = firstResult.image.thumbnailLink;
+    var width = parseInt(firstResult.image.thumbnailWidth);
+    var height = parseInt(firstResult.image.thumbnailHeight);
+    callback(imageUrl, width, height);
+  };
+  x.onerror = function() {
+    errorCallback('Network error.');
+  };
+  x.send();
+}
+
 //document.addEventListener('DOMContentLoaded', function() {
 window.onload =  function(myUrl) {
   getCurrentTabUrl(function(myUrl) {
@@ -96,18 +128,26 @@ window.onload =  function(myUrl) {
 		renderAlternative1(charities[x][2] + '\n');
 		/*renderAlternative2(charities[x][3] + '\n');
 		renderAlternative3(charities[x][4] + '\n');*/
-		document.getElementById('alternative1').addEventListener('click', function() {
+    getImageUrl(charities[x][0], function(imageUrl, width, height) {
+              var imageResult = document.getElementById('image-result');
+              imageResult.width = width;
+              imageResult.height = height;
+              imageResult.src = imageUrl;
+              imageResult.hidden = false;
+
+            }, function(errorMessage) {
+              renderStatus('Cannot display image. ' + errorMessage);
+            });
+    document.getElementById('alternative1').addEventListener('click', function() {
 			chrome.tabs.create({url : urls[x][0]});
-		});
+		  });
 		/*document.getElementById('alternative2').addEventListener('click', function() {
 			chrome.tabs.create({ url : urls[x][1]});
 		}); 
 		document.getElementById('alternative3').addEventListener('click', function() {
 			chrome.tabs.create({ url :urls[x][2]});
 		});*/
-    };
-  } else {
-    renderStatus1('Sorry! This charity is not in our database')
+    }
   };
-  }});
+  });
 };
