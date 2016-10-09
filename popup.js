@@ -40,12 +40,20 @@ function renderAlternatives(alternativeOrg) {
   document.getElementById('alternative').textContent = alternativeOrg;
 }
 
+function renderTitle(title) {
+  document.getElementById('title').textContent = title;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
     for (var x in charities) {
       if (url.indexOf(x) !== -1) {
-        renderStatus('Organization name:\n' + charities[x][0] + '\nCharity Navigator Ranking:\n' + charities[x][1]);
-        renderAlternatives('Alternative Charities:' + '\n' + charities[x].slice(2).join("\n"));
+        renderTitle('Organization Name:\n');
+		renderStatus(charities[x][0]);
+		renderTitle('\nCharity Navigator Ranking:\n');
+		renderStatus(charities[x][1]);
+		renderTitle('Alternative Charities:' + '\n');
+        renderAlternatives(charities[x].slice(2).join("\n"));
         break;
       }
       renderStatus('This charity is not in our database!');
