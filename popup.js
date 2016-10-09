@@ -54,6 +54,10 @@ var urls = {
 	'worldwildlife.org' : ['http://www.awildfound.org/', 'http://www.wolf.org/', 'http://www.marinemammalcenter.org/'],
 }
 
+var articles = {
+	'autismspeaks.org' : ['NPR', 'http://www.npr.org/2015/06/03/411524156/in-search-of-the-red-cross-500-million-in-haiti-relief', 'Time', 'http://time.com/3908457/red-cross-six-homes-haiti/', 'Huffington Post', 'http://www.huffingtonpost.com/2015/06/04/red-cross-haiti-report_n_7511080.html'],
+}
+
 function renderStatus1(statusText1) {
   document.getElementById('status1').textContent = statusText1;
 }
@@ -85,6 +89,23 @@ function renderTitle2(title2) {
 function renderTitle3(title3) {
   document.getElementById('title3').textContent = title3;
 }
+
+function renderTitle4(title4) {
+  document.getElementById('title4').textContent = title4;
+}
+
+function renderArticle1(article1) {
+  document.getElementById('article1').textContent = article1;
+}
+
+function renderArticle2(article2) {
+  document.getElementById('article2').textContent = article2;
+}
+
+function renderArticle3(article3) {
+  document.getElementById('article3').textContent = article3;
+}
+
 
 function getImageUrl(searchTerm, callback, errorCallback) {
   var searchUrl = 'https://www.googleapis.com/customsearch/v1?key=' +
@@ -159,6 +180,19 @@ window.onload =  function(myUrl) {
 		document.getElementById('alternative3').addEventListener('click', function() {
 			chrome.tabs.create({ url :urls[x][2]});
 		  });
+		renderTitle4('Read More:');
+		renderArticle1(articles[x][0] + '\n');
+		renderArticle2(articles[x][2] + '\n');
+		renderArticle3(articles[x][4] + '\n');
+		document.getElementById('article1').addEventListener('click', function() {
+			chrome.tabs.create({url : articles[x][1]});
+		  });
+		document.getElementById('article2').addEventListener('click', function() {
+			chrome.tabs.create({url : articles[x][3]});
+		}); 
+		document.getElementById('article3').addEventListener('click', function() {
+			chrome.tabs.create({url : articles[x][5]});
+		});
       break;
       }
   };
