@@ -44,9 +44,17 @@ function renderStatus2(statusText2) {
   document.getElementById('status2').textContent = statusText2;
 }
 
-function renderAlternatives(alternativeOrg) {
-  document.getElementById('alternative').textContent = alternativeOrg;
+function renderAlternative1(alternativeOrg1) {
+  document.getElementById('alternative1').textContent = alternativeOrg1;
 }
+
+/*function renderAlternative2(alternativeOrg2) {
+  document.getElementById('alternative2').textContent = alternativeOrg2;
+}
+
+function renderAlternative3(alternativeOrg3, x) {
+  document.getElementById('alternative3').textContent = alternativeOrg3;
+}*/
 
 function renderTitle1(title1) {
   document.getElementById('title1').textContent = title1;
