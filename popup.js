@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var x in charities) {
       if (url.indexOf(x) !== -1) {
         renderStatus('Organization name:\n' + charities[x][0] + '\nCharity Navigator Ranking:\n' + charities[x][1]);
-        renderAlternatives('Alternative Charities:' + '\n' + charities[x].slice(2).join("\n"));
+        renderAlternatives('Alternative Charities:\n' + charities[x].slice(2).join("\n"));
         break;
       }
       renderStatus('This charity is not in our database!');
