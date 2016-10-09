@@ -60,22 +60,22 @@ function renderTitle3(title3) {
   document.getElementById('title3').textContent = title3;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-//window.onload =  function() {
+//document.addEventListener('DOMContentLoaded', function() {
+window.onload =  function(myUrl) {
   getCurrentTabUrl(function(myUrl) {
     for (var x in charities) {
       if (myUrl.indexOf(x) !== -1) {
         renderTitle1('Organization Name:');
-		    renderStatus1(charities[x][0] + '\n');
-		    renderTitle2('Charity Navigator Ranking:');
-		    renderStatus2(charities[x][1] + '\n');
-		    renderTitle3('Alternative Charities:');
-		    renderAlternatives(charities[x].slice(2).join('\n'));
-		    document.getElementById('alternative').addEventListener('click', function() {
-          chrome.tabs.create({'url' : 'http://www.doctorswithoutborders.org/'.href);
-        });
+		renderStatus1(charities[x][0] + '\n');
+		renderTitle2('Charity Navigator Ranking:');
+		renderStatus2(charities[x][1] + '\n');
+		renderTitle3('Alternative Charities:');
+		renderAlternatives(charities[x].slice(2).join('\n'));
+		document.getElementById('alternative').addEventListener('click', function() {
+			chrome.tabs.create({'url' : 'http://www.doctorswithoutborders.org/'.href});
+		});
       }
       renderStatus('This charity is not in our database!');
     };
   });
-});
+};
