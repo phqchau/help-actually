@@ -17,22 +17,22 @@ function getCurrentTabUrl(callback) {
 }
 
 var charities = {
-  'redcross.org' : ['The American Red Cross', '3/5', 'Doctors Without Borders',  'All Hands Volunteers', 'Haiti Communitiere'],
-  'autismspeaks.org' : ['Autism Speaks', '2/5', 'Organization for Autism Research', 'Autism Research Institute', 'Southwest Autism Research & Resource Center'],
-  'komen.org' : ['Susan G Komen for the Cure', '3/5', 'Living Beyond Breast Cancer', 'National Breast Cancer Foundation Inc.', 'The Rose'],
-  'kidswishnetwork.org' : ['Kids Wish Network', '0/5', 'Make a Wish Foundation'],
-  'nvsf.org' : ['National Veterans Services Fund', '0/5', 'National Military Family Association', 'Fisher House Foundation', 'Homes For Our Troops'],
-  'childrenscharityfund.org' : ['Children\'s Charity Fund Inc.', '0/5', 'The Center for Enriched Living', 'UNICEF', '4 Paws for Ability'],
-  'ffcf.org' : ['Firefighter\'s Charitable Foundation', '0/5', 'National Fallen Firefighters Foundation', 'FDNY Foundation', 'Correctional Peace Officers Foundation'],
-  'findthekids.org' : ['The Committee for Missing Children', '0/5', 'National Center for Missing & Exploited Children'],
-  'cancersurvivorsfund.org' : ['Cancer Survivors\' Fund', '0/5', 'Neuroendocrine Tumor Research Foundation', 'National Pediatric Cancer Foundation', 'Bivona Child Advocacy Group'],
-  'spcai.org' : ['SPCA International', '0/5', 'Animal Welfare Association', 'Animal Welfare League', 'Animal Welfare Society'],
-  'peta.org' : ['People for the Ethical Treatment of Animals (PETA)', '3/5', 'Last Chance for Animals',  'Animal Legal Defense Fund', 'Friends of Animals'],
-  'clintonfoundation.org' : ['Clinton Foundation', '4/5', 'Bill and Melinda Gates Foundation', 'Timmy Global Health', 'World Help'],
+  'redcross.org' : ['The American Red Cross', '3/4', 'Doctors Without Borders',  'All Hands Volunteers', 'Haiti Communitiere'],
+  'autismspeaks.org' : ['Autism Speaks', '2/4', 'Organization for Autism Research', 'Autism Research Institute', 'Southwest Autism Research & Resource Center'],
+  'komen.org' : ['Susan G Komen for the Cure', '3/4', 'Living Beyond Breast Cancer', 'National Breast Cancer Foundation Inc.', 'The Rose'],
+  'kidswishnetwork.org' : ['Kids Wish Network', '0/4', 'Make a Wish Foundation'],
+  'nvsf.org' : ['National Veterans Services Fund', '0/4', 'National Military Family Association', 'Fisher House Foundation', 'Homes For Our Troops'],
+  'childrenscharityfund.org' : ['Children\'s Charity Fund Inc.', '0/4', 'The Center for Enriched Living', 'UNICEF', '4 Paws for Ability'],
+  'ffcf.org' : ['Firefighter\'s Charitable Foundation', '0/4', 'National Fallen Firefighters Foundation', 'FDNY Foundation', 'Correctional Peace Officers Foundation'],
+  'findthekids.org' : ['The Committee for Missing Children', '0/4', 'National Center for Missing & Exploited Children'],
+  'cancersurvivorsfund.org' : ['Cancer Survivors\' Fund', '0/4', 'Neuroendocrine Tumor Research Foundation', 'National Pediatric Cancer Foundation', 'Bivona Child Advocacy Group'],
+  'spcai.org' : ['SPCA International', '0', 'Animal Welfare Association', 'Animal Welfare League', 'Animal Welfare Society'],
+  'peta.org' : ['People for the Ethical Treatment of Animals (PETA)', '3/4', 'Last Chance for Animals',  'Animal Legal Defense Fund', 'Friends of Animals'],
+  'clintonfoundation.org' : ['Clinton Foundation', '4/4', 'Bill and Melinda Gates Foundation', 'Timmy Global Health', 'World Help'],
   'salvationarmyusa.org' : ['The Salvation Army', 'N/A', 'Goodwill', 'Northwest Harvest', 'The Trevor Project'],
-  'pva.org' : ['Paralyzed Veterans of America', '0/5', 'Congressional Medal of Honor Foundation',  'DAV (Disabled American Veterans) Charitable Service Trust', 'Iraq and Afghanistan Veterans of America'],
-  'diabetes.org' : ['American Diabetes Association', '2/5', 'The Notah Begay III Foundation', 'Taking Control of Your Diabetes', 'Diabetic Youth Foundation'],
-  'worldwildlife.org' : ['World Wildlife Fund', '3/5', 'African Wildlife Foundation', 'International Wolf Center', 'The Marine Mammal Center']
+  'pva.org' : ['Paralyzed Veterans of America', '0/4', 'Congressional Medal of Honor Foundation',  'DAV (Disabled American Veterans) Charitable Service Trust', 'Iraq and Afghanistan Veterans of America'],
+  'diabetes.org' : ['American Diabetes Association', '2/4', 'The Notah Begay III Foundation', 'Taking Control of Your Diabetes', 'Diabetic Youth Foundation'],
+  'worldwildlife.org' : ['World Wildlife Fund', '3/4', 'African Wildlife Foundation', 'International Wolf Center', 'The Marine Mammal Center']
 }
 
 var urls = {
@@ -55,7 +55,7 @@ var urls = {
 }
 
 var articles = {
-	'autismspeaks.org' : ['NPR', 'http://www.npr.org/2015/06/03/411524156/in-search-of-the-red-cross-500-million-in-haiti-relief', 'Time', 'http://time.com/3908457/red-cross-six-homes-haiti/', 'Huffington Post', 'http://www.huffingtonpost.com/2015/06/04/red-cross-haiti-report_n_7511080.html'],
+	'redcross.org' : ['NPR', 'http://www.npr.org/2015/06/03/411524156/in-search-of-the-red-cross-500-million-in-haiti-relief', 'Time', 'http://time.com/3908457/red-cross-six-homes-haiti/', 'Huffington Post', 'http://www.huffingtonpost.com/2015/06/04/red-cross-haiti-report_n_7511080.html'],
 }
 
 function renderStatus1(statusText1) {
