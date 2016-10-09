@@ -18,40 +18,40 @@ function getCurrentTabUrl(callback) {
 
 var charities = {
   'redcross.org' : ['The American Red Cross', '3', 'Doctors Without Borders',  'All Hands Volunteers', 'Haiti Communitiere'],
-  'autismspeaks.org' : ['Autism Speaks', '2', 'Organization for Autism Research'],//  'Autism Research Institute', 'Southwest Autism Research & Resource Center'],
-  'komen.org' : ['Susan G Komen for the Cure', '3', 'Living Beyond Breast Cancer'],//  'National Breast Cancer Foundation Inc.', 'The Rose'],
+  'autismspeaks.org' : ['Autism Speaks', '2', 'Organization for Autism Research', 'Autism Research Institute', 'Southwest Autism Research & Resource Center'],
+  'komen.org' : ['Susan G Komen for the Cure', '3', 'Living Beyond Breast Cancer', 'National Breast Cancer Foundation Inc.', 'The Rose'],
   'kidswishnetwork.org' : ['Kids Wish Network', '0', 'Make a Wish Foundation'],
-  'nvsf.org' : ['National Veterans Services Fund', '0', 'National Military Family Association'],//  'Fisher House Foundation', 'Homes For Our Troops'],
-  'childrenscharityfund.org' : ['Children\'s Charity Fund Inc.', '0', 'The Center for Enriched Living'],//  'UNICEF', '4 Paws for Ability'],
-  'ffcf.org' : ['Firefighter\'s Charitable Foundation', '0', 'National Fallen Firefighters Foundation'],//  'FDNY Foundation', 'Correctional Peace Officers Foundation'],
+  'nvsf.org' : ['National Veterans Services Fund', '0', 'National Military Family Association', 'Fisher House Foundation', 'Homes For Our Troops'],
+  'childrenscharityfund.org' : ['Children\'s Charity Fund Inc.', '0', 'The Center for Enriched Living', 'UNICEF', '4 Paws for Ability'],
+  'ffcf.org' : ['Firefighter\'s Charitable Foundation', '0', 'National Fallen Firefighters Foundation', 'FDNY Foundation', 'Correctional Peace Officers Foundation'],
   'findthekids.org' : ['The Committee for Missing Children', '0', 'National Center for Missing & Exploited Children'],
-  'cancersurvivorsfund.org' : ['Cancer Survivors\' Fund', '0', 'Neuroendocrine Tumor Research Foundation'],//  'National Pediatric Cancer Foundation', 'Bivona Child Advocacy Group'],
-  'spcai.org' : ['SPCA International', '0', 'Animal Welfare Association'],//  'Animal Welfare League', 'Animal Welfare Society'],
-  'peta.org' : ['People for the Ethical Treatment of Animals (PETA)', '3', 'Last Chance for Animals'],//  'Animal Legal Defense Fund', 'Friends of Animals'],
-  'clintonfoundation.org' : ['Clinton Foundation', '4', 'Bill and Melinda Gates Foundation'],//  'Timmy Global Health', 'World Help'],
-  'salvationarmyusa.org' : ['The Salvation Army', 'N/A', 'Goodwill'],//  'Northwest Harvest', 'The Trevor Project'],
-  'pva.org' : ['Paralyzed Veterans of America', '0', 'Congressional Medal of Honor Foundation'],//  'DAV (Disabled American Veterans) Charitable Service Trust', 'Iraq and Afghanistan Veterans of America'],
-  'diabetes.org' : ['American Diabetes Association', '2', 'The Notah Begay III Foundation'],//  'Taking Control of Your Diabetes', 'Diabetic Youth Foundation'],
-  'worldwildlife.org' : ['World Wildlife Fund', '3', 'African Wildlife Foundation'],//  'International Wolf Center', 'The Marine Mammal Center']
+  'cancersurvivorsfund.org' : ['Cancer Survivors\' Fund', '0', 'Neuroendocrine Tumor Research Foundation', 'National Pediatric Cancer Foundation', 'Bivona Child Advocacy Group'],
+  'spcai.org' : ['SPCA International', '0', 'Animal Welfare Association', 'Animal Welfare League', 'Animal Welfare Society'],
+  'peta.org' : ['People for the Ethical Treatment of Animals (PETA)', '3', 'Last Chance for Animals',  'Animal Legal Defense Fund', 'Friends of Animals'],
+  'clintonfoundation.org' : ['Clinton Foundation', '4', 'Bill and Melinda Gates Foundation', 'Timmy Global Health', 'World Help'],
+  'salvationarmyusa.org' : ['The Salvation Army', 'N/A', 'Goodwill', 'Northwest Harvest', 'The Trevor Project'],
+  'pva.org' : ['Paralyzed Veterans of America', '0', 'Congressional Medal of Honor Foundation',  'DAV (Disabled American Veterans) Charitable Service Trust', 'Iraq and Afghanistan Veterans of America'],
+  'diabetes.org' : ['American Diabetes Association', '2', 'The Notah Begay III Foundation', 'Taking Control of Your Diabetes', 'Diabetic Youth Foundation'],
+  'worldwildlife.org' : ['World Wildlife Fund', '3', 'African Wildlife Foundation', 'International Wolf Center', 'The Marine Mammal Center']
 }
 
 var urls = {
 	'redcross.org' : ['http://www.doctorswithoutborders.org/', 'https://www.hands.org/', 'http://haiti.communitere.org/',],
-	'autismspeaks.org' : ['http://www.researchautism.org/'],
-	'komen.org' : ['http://www.lbbc.org/'],
+	'autismspeaks.org' : ['http://www.researchautism.org/', 'https://www.autism.com/', 'http://www.autismcenter.org/'],
+	'komen.org' : ['http://www.lbbc.org/', 'http://www.nationalbreastcancer.org/', 'http://www.therose.org/'],
 	'kidswishnetwork.org' : ['http://wish.org/#sm.000180jnl3pvndi0zmo12lxldp7zd'],
-	'nvsf.org' : ['http://www.militaryfamily.org/'],
-	'childrenscharityfund.org' : ['https://www.centerforenrichedliving.org/'],
-	'ffcf.org' : ['http://www.firehero.org/'],
+	'nvsf.org' : ['http://www.militaryfamily.org/', 'https://www.fisherhouse.org/', 'https://www.hfotusa.org/'],
+	'childrenscharityfund.org' : ['https://www.centerforenrichedliving.org/', 'http://www.unicef.org/', 'http://4pawsforability.org/'],
+	'ffcf.org' : ['http://www.firehero.org/', 'http://www.fdnyfoundation.org/', 'http://cpof.org/'],
 	'findthekids.org' : ['http://www.missingkids.com/home'],
-	'cancersurvivorsfund.org' : ['https://netrf.org/'],
-	'spcai.org' : ['http://www.awanj.org/'],
-	'peta.org' : ['http://www.lcanimal.org/'],
-	'clintonfoundation.org' : ['http://www.gatesfoundation.org/'],
-	'salvationarmyusa.org' : ['http://www.goodwill.org/'],
-	'pva.org' : ['http://themedalofhonor.com/'],
-	'diabetes.org' : ['http://www.nb3foundation.org/'],
-	'worldwildlife.org' : ['http://www.awildfound.org/'],
+	'cancersurvivorsfund.org' : ['https://netrf.org/', 'http://nationalpcf.org/', 'http://www.bivonacac.org/'],
+	'spcai.org' : ['http://www.awanj.org/', 'http://www.awlrescueme.com/', 'http://lfaw.org/' ],
+	'peta.org' : ['http://www.lcanimal.org/', 'http://aldf.org/', 'https://www.friendsofanimals.org/'],
+	'clintonfoundation.org' : ['http://www.gatesfoundation.org/', 'https://timmyglobalhealth.org/', 'https://worldhelp.net/'],
+	'salvationarmyusa.org' : ['http://www.goodwill.org/', 'http://www.northwestharvest.org/', 'http://www.thetrevorproject.org/'],
+	'pva.org' : ['http://themedalofhonor.com/', 'https://www.dav.org/', 'http://iava.org/'],
+	'diabetes.org' : ['http://www.nb3foundation.org/', 'https://www.tcoyd.org/', 'http://www.dyf.org/'],
+	'worldwildlife.org' : ['http://www.awildfound.org/', 'http://www.wolf.org/', 'http://www.marinemammalcenter.org/'],
 }
 
 function renderStatus1(statusText1) {
@@ -70,7 +70,7 @@ function renderAlternative2(alternativeOrg2) {
   document.getElementById('alternative2').textContent = alternativeOrg2;
 }
 
-function renderAlternative3(alternativeOrg3, x) {
+function renderAlternative3(alternativeOrg3) {
   document.getElementById('alternative3').textContent = alternativeOrg3;
 }
 
@@ -122,15 +122,22 @@ function getImageUrl(searchTerm, callback, errorCallback) {
 window.onload =  function(myUrl) {
   getCurrentTabUrl(function(myUrl) {
     for (var x in charities) {
-      if (myUrl.indexOf(x) != -1) {
+      if (myUrl.indexOf(x) !== -1) {
 		      renderTitle1('Organization Name:');
 		      renderStatus1(charities[x][0] + '\n');
 		      renderTitle2('Charity Navigator Ranking:');
 		      renderStatus2(charities[x][1] + '\n');
 		      renderTitle3('Alternative Charities:');
-		      renderAlternative1(charities[x][2] + '\n');
-		      renderAlternative2(charities[x][3] + '\n');
-		      renderAlternative3(charities[x][4] + '\n');
+          if (charities[x].length === 3) {
+            renderAlternative1(charities[x][2] + '\n');
+          } else if (charities[x].length === 4) {
+            renderAlternative1(charities[x][2] + '\n');
+            renderAlternative2(charities[x][3] + '\n');
+          } else if (charities[x].length === 5) {
+            renderAlternative1(charities[x][2] + '\n');
+            renderAlternative2(charities[x][3] + '\n');
+            renderAlternative3(charities[x][4] + '\n');
+          };
           getImageUrl(charities[x][0], function(imageUrl, width, height) {
               var imageResult = document.getElementById('image-result');
               imageResult.width = width;
