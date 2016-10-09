@@ -1,23 +1,14 @@
-// Copyright (c) 2011 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-// When the extension is installed or upgraded ...
-chrome.runtime.onInstalled.addListener(function() {
-  // Replace all rules ...
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    // With a new rule ...
-    chrome.declarativeContent.onPageChanged.addRules([
-      {
-        // That fires when a page's URL contains a 'g' ...
-        conditions: [
-          new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { hostEquals: "https://autismspeaks.org/*" },
-          })
-        ],
-        // And shows the extension's page action.
-        actions: [ new chrome.declarativeContent.ShowPageAction() ]
-      }
-    ]);
-  });
+chrome.runtime.onInstalled.addListener(function(details) {
+    chrome.storage.sync.set({clean_news_feed: true});
 });
+
+// listen for any changes to the URL of any tab.
+chrome.tabs.onUpdated.addListener(function(id, info, tab){
+    if (tab.url.toLowerCase().indexOf("autismspeaks.org") > -1){
+        chrome.pageAction.show(tab.id);
+    }
+	if (tab.url.toLowerCase().indexOf("redcross.org") > -1){
+        chrome.pageAction.show(tab.id);
+    }
+});
+
