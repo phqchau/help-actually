@@ -1,14 +1,14 @@
-chrome.runtime.onInstalled.addListener(function() {
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    chrome.declarativeContent.onPageChanged.addRules([
-      {
-	        conditions: [
-	          new chrome.declarativeContent.PageStateMatcher({
-	            pageUrl: { urlContains: 'http://www.konbitmizik.org/' },
-	          })
-	        ],
-	        actions: [ new chrome.declarativeContent.ShowPageAction() ]
-	      }
-	    ]);
-	  });
-	});
+chrome.runtime.onInstalled.addListener(function(details) {
+    chrome.storage.sync.set({clean_news_feed: true});
+});
+
+// listen for any changes to the URL of any tab.
+chrome.tabs.onUpdated.addListener(function(id, info, tab){
+    if (tab.url.toLowerCase().indexOf("autismspeaks.org") > -1){
+        chrome.pageAction.show(tab.id);
+    }
+	if (tab.url.toLowerCase().indexOf("redcross.org") > -1){
+        chrome.pageAction.show(tab.id);
+    }
+});
+
