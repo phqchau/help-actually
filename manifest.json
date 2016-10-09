@@ -10,8 +10,8 @@
   },
 
   "permissions": [
-    "https://*.autismspeaks.org/*",
-	  "tabs"
+	"http://www.doctorswithoutborders.org/",
+	"tabs"
   ],
 
   "page_action": {

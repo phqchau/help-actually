@@ -10,19 +10,43 @@
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
+		width: 300px;
       }
-	  #status {
+	  #status1 {
         /* avoid an excessively wide status text */
         white-space: pre;
         overflow: auto;
-        width: 500px;
+		font-size: 165%;
+      }
+	  #status2 {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        overflow: auto;
+		font-size: 165%;
+      }
+	  #title1 {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        overflow: auto;
+		font-size: 200%;
+      }
+	  #title2 {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        overflow: auto;
+		font-size: 200%;
+      }
+	  #title3 {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        overflow: auto;
+		font-size: 200%;
       }
 	  #alternative {
         /* avoid an excessively wide status text */
         white-space: pre;
         overflow: auto;
-        width: 500px;
+		font-size: 165%;
       }
     </style>
 
@@ -35,8 +59,12 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="status"></div>
-    <div id="alternative"></div>
+    <div id="title1"></div>
+	<div id="status1"></div>
+	<div id="title2"></div>
+	<div id="status2"></div>
+	<div id="title3"></div>
+	<a href='http://www.doctorswithoutborders.org/'><div id="alternative"></div></a>
     <img id="image-result" hidden>
   </body>
 </html>

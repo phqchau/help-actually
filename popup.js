@@ -6,16 +6,16 @@ function getCurrentTabUrl(callback) {
 
   chrome.tabs.query(queryInfo, function(tabs) {
     var tab = tabs[0];
-    var url = tab.url;
-    console.assert(typeof url == 'string', 'tab.url should be a string');
+    var myUrl = tab.url;
+    console.assert(typeof myUrl == 'string', 'tab.url should be a string');
 
-    callback(url);
+    callback(myUrl);
   });
 }
 
 var charities = {
   'redcross.org' : ['The American Red Cross', '3', 'Doctors Without Borders',  'All Hands Volunteers', 'Haiti Communitiere'],
-  'autismspeaks.org' : ['Autism Speaks', '2', 'Organization for Autism Research',  'Autism Research Institute', 'Southwest Autism Research & Resource Center'],
+  /*'autismspeaks.org' : ['Autism Speaks', '2', 'Organization for Autism Research',  'Autism Research Institute', 'Southwest Autism Research & Resource Center'],
   'komen.org' : ['Susan G Komen for the Cure', '3', 'Living Beyond Breast Cancer',  'National Breast Cancer Foundation Inc.', 'The Rose'],
   'kidswishnetwork.org' : ['Kids Wish Network', '0', 'Make a Wish Foundation'],
   'nvsf.org' : ['National Veterans Services Fund', '0', 'National Military Family Association',  'Fisher House Foundation', 'Homes For Our Troops'],
@@ -29,28 +29,51 @@ var charities = {
   'salvationarmyusa.org' : ['The Salvation Army', 'N/A', 'Goodwill',  'Northwest Harvest', 'The Trevor Project'],
   'pva.org' : ['Paralyzed Veterans of America', '0', 'Congressional Medal of Honor Foundation',  'DAV (Disabled American Veterans) Charitable Service Trust', 'Iraq and Afghanistan Veterans of America'],
   'diabetes.org' : ['American Diabetes Association', '2', 'The Notah Begay III Foundation',  'Taking Control of Your Diabetes', 'Diabetic Youth Foundation'],
-  'worldwildlife.org' : ['World Wildlife Fund', '3', 'African Wildlife Foundation',  'International Wolf Center', 'The Marine Mammal Center']
+  'worldwildlife.org' : ['World Wildlife Fund', '3', 'African Wildlife Foundation',  'International Wolf Center', 'The Marine Mammal Center']*/
 }
 
-function renderStatus(statusText) {
-  document.getElementById('status').textContent = statusText;
+var urls = {
+	'redcross.org' : ['http://www.doctorswithoutborders.org/', 'https://www.hands.org/', 'http://haiti.communitere.org/'],
+}
+
+function renderStatus1(statusText1) {
+  document.getElementById('status1').textContent = statusText1;
+}
+
+function renderStatus2(statusText2) {
+  document.getElementById('status2').textContent = statusText2;
 }
 
 function renderAlternatives(alternativeOrg) {
   document.getElementById('alternative').textContent = alternativeOrg;
 }
 
-function renderTitle(title) {
-  document.getElementById('title').textContent = title;
+function renderTitle1(title1) {
+  document.getElementById('title1').textContent = title1;
+}
+
+function renderTitle2(title2) {
+  document.getElementById('title2').textContent = title2;
+}
+
+function renderTitle3(title3) {
+  document.getElementById('title3').textContent = title3;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  getCurrentTabUrl(function(url) {
+//window.onload =  function() {
+  getCurrentTabUrl(function(myUrl) {
     for (var x in charities) {
-      if (url.indexOf(x) !== -1) {
-        renderStatus('Organization name:\n' + charities[x][0] + '\nCharity Navigator Ranking:\n' + charities[x][1]);
-        renderAlternatives('Alternative Charities:\n' + charities[x].slice(2).join("\n"));
-        break;
+      if (myUrl.indexOf(x) !== -1) {
+        renderTitle1('Organization Name:');
+		renderStatus1(charities[x][0] + '\n');
+		renderTitle2('Charity Navigator Ranking:');
+		renderStatus2(charities[x][1] + '\n');
+		renderTitle3('Alternative Charities:');
+		renderAlternatives(charities[x].slice(2).join('\n'));
+		document.getElementById('alternative').addEventListener('click', init() {
+			chrome.tabs.create({'url' : 'http://www.doctorswithoutborders.org/'});
+		});
       }
       renderStatus('This charity is not in our database!');
     };

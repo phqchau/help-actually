@@ -6,7 +6,6 @@ chrome.runtime.onInstalled.addListener(function(details) {
 chrome.tabs.onUpdated.addListener(function(id, info, tab){
     if (tab.url.toLowerCase().indexOf("autismspeaks.org") > -1){
         chrome.pageAction.show(tab.id);
-		chrome.tabs.executeScript(null, {"file": "popup.html"});
     }
 	  else if (tab.url.toLowerCase().indexOf("redcross.org") > -1){
         chrome.pageAction.show(tab.id);
