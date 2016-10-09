@@ -72,10 +72,9 @@ window.onload =  function(myUrl) {
 		renderTitle3('Alternative Charities:');
 		renderAlternatives(charities[x].slice(2).join('\n'));
 		document.getElementById('alternative').addEventListener('click', function() {
-			chrome.tabs.create({'url' : 'http://www.doctorswithoutborders.org/'.href});
+			chrome.tabs.create({url: 'http://www.doctorswithoutborders.org/'});
 		});
-      }
-      renderStatus('This charity is not in our database!');
     };
-  });
-};
+	renderStatus('This charity is not in our database!');
+  }});
+}
