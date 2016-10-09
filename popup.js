@@ -1,15 +1,18 @@
 function getCurrentTabUrl(callback) {
-  var queryInfo = {
+ var queryInfo = {
     active: true,
     currentWindow: true
   };
 
   chrome.tabs.query(queryInfo, function(tabs) {
     var tab = tabs[0];
-    var myUrl = tab.url;
+    var myUrl = tabs[0].url;
 	console.assert(typeof myUrl == 'string', 'tab.url should be a string');
 
     callback(myUrl);
+	if(typeof callback !== 'null'){
+     callback(myUrl);
+    }
   });
 }
 
@@ -33,7 +36,7 @@ var charities = {
 }
 
 var urls = {
-	'redcross.org' : ['http://www.doctorswithoutborders.org/'],// 'https://www.hands.org/', 'http://haiti.communitere.org/'],
+	'redcross.org' : ['http://www.doctorswithoutborders.org/', 'https://www.hands.org/', 'http://haiti.communitere.org/',],
 	'autismspeaks.org' : ['http://www.researchautism.org/'],
 	'komen.org' : ['http://www.lbbc.org/'],
 	'kidswishnetwork.org' : ['http://wish.org/#sm.000180jnl3pvndi0zmo12lxldp7zd'],
@@ -48,7 +51,7 @@ var urls = {
 	'salvationarmyusa.org' : ['http://www.goodwill.org/'],
 	'pva.org' : ['http://themedalofhonor.com/'],
 	'diabetes.org' : ['http://www.nb3foundation.org/'],
-	'worldwildlife.org' : ['http://www.awildfound.org/']
+	'worldwildlife.org' : ['http://www.awildfound.org/'],
 }
 
 function renderStatus1(statusText1) {
@@ -86,11 +89,11 @@ function renderTitle3(title3) {
 function getImageUrl(searchTerm, callback, errorCallback) {
   var searchUrl = 'https://www.googleapis.com/customsearch/v1?key=' +
     'AIzaSyAMoq_eJliMHWoApPlUQtXW7ht37WSt4ak&cx=017750922335923786184:5et74q44yxi&q=' + encodeURIComponent(searchTerm) + '&searchType=image';
-  var x = new XMLHttpRequest();
-  x.open('GET', searchUrl);
-  x.responseType = 'json';
-  x.onload = function() {
-    var response = x.response;
+  var y = new XMLHttpRequest();
+  y.open('GET', searchUrl);
+  y.responseType = 'json';
+  y.onload = function() {
+    var response = y.response;
     if (!response || response.items.length === 0) {
       errorCallback('No response from Google Image search!');
       return;
@@ -109,26 +112,26 @@ function getImageUrl(searchTerm, callback, errorCallback) {
     var height = parseInt(firstResult.image.thumbnailHeight);
     callback(imageUrl, width, height);
   };
-  x.onerror = function() {
+  y.onerror = function() {
     errorCallback('Network error.');
   };
-  x.send();
+  y.send();
 }
 
 //document.addEventListener('DOMContentLoaded', function() {
 window.onload =  function(myUrl) {
   getCurrentTabUrl(function(myUrl) {
     for (var x in charities) {
-      if (myUrl.indexOf(x) !== -1) {
-        renderTitle1('Organization Name:');
+      if (myUrl.indexOf(x) != -1) {
+		renderTitle1('Organization Name:');
 		renderStatus1(charities[x][0] + '\n');
 		renderTitle2('Charity Navigator Ranking:');
 		renderStatus2(charities[x][1] + '\n');
-		renderTitle3('Alternative Charity:');
+		renderTitle3('Alternative Charities:');
 		renderAlternative1(charities[x][2] + '\n');
 		/*renderAlternative2(charities[x][3] + '\n');
 		renderAlternative3(charities[x][4] + '\n');*/
-    getImageUrl(charities[x][0], function(imageUrl, width, height) {
+		getImageUrl(charities[x][0], function(imageUrl, width, height) {
               var imageResult = document.getElementById('image-result');
               imageResult.width = width;
               imageResult.height = height;
@@ -138,7 +141,7 @@ window.onload =  function(myUrl) {
             }, function(errorMessage) {
               renderStatus('Cannot display image. ' + errorMessage);
             });
-    document.getElementById('alternative1').addEventListener('click', function() {
+		document.getElementById('alternative1').addEventListener('click', function() {
 			chrome.tabs.create({url : urls[x][0]});
 		  });
 		/*document.getElementById('alternative2').addEventListener('click', function() {
@@ -147,7 +150,8 @@ window.onload =  function(myUrl) {
 		document.getElementById('alternative3').addEventListener('click', function() {
 			chrome.tabs.create({ url :urls[x][2]});
 		});*/
-    }
+		break;
+	}
   };
   });
 };
