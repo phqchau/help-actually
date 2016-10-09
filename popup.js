@@ -14,7 +14,22 @@ function getCurrentTabUrl(callback) {
 }
 
 var charities = {
-  'http://www.konbitmizik.org/' : 'Konbit Mizik'
+  'redcross.org' : 'The American Red Cross',
+  'autismspeaks.org' : 'Autism Speaks',
+  'komen.org' : 'Susan G Komen for the Cure',
+  'kidswishnetwork.org' : 'Kids Wish Network',
+  'nvsf.org' : 'National Veterans Services Fund',
+  'childrenscharityfund.org' : 'Children\'s Charity Fund Inc.',
+  'ffcf.org' : 'Firefighter\'s Charitable Foundation'
+  'findthekids.org' : 'The Committee for Missing Children',
+  'cancersurvivorsfund.org' : 'Cancer Survivors\' Fund',
+  '.spcai.org' : 'SPCA International',
+  '.peta.org' : 'People for the Ethical Treatment of Animals (PETA)',
+  '.clintonfoundation.org' : 'Clinton Foundation',
+  '.salvationarmyusa.org' : 'The Salvation Army',
+  '.pva.org' : 'Paralyzed Veterans of America',
+  '.diabetes.org' : 'American Diabetes Association',
+  '.worldwildlife.org' : 'World Wildlife Fund'
 }
 
 function renderStatus(statusText) {
