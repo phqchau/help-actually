@@ -91,5 +91,8 @@ window.onload =  function(myUrl) {
 			chrome.tabs.create({ url :urls[x][2]});
 		});*/
     };
+  } else {
+    renderStatus1('Sorry! This charity is not in our database')
+  };
   }});
 };
