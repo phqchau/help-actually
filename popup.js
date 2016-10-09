@@ -74,7 +74,8 @@ window.onload =  function(myUrl) {
 		document.getElementById('alternative').addEventListener('click', function() {
 			chrome.tabs.create({url: 'http://www.doctorswithoutborders.org/'});
 		});
-    };
-	renderStatus('This charity is not in our database!');
+  } else {
+    renderStatus1('Sorry! This charity is not in our database')
+  };
   }});
 }
