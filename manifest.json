@@ -8,14 +8,16 @@
     "scripts": ["background.js"],
     "persistent": false
   },
+
   "permissions": [
     "https://*.autismspeaks.org/*",
-	"tabs"
+	  "tabs"
   ],
+
   "page_action": {
     "default_icon": "icon.png",
-	"default_title": "Help Actually",
+	  "default_title": "Help Actually",
     "default_popup": "popup.html"
   }
-  
+
 }
