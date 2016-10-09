@@ -14,7 +14,7 @@ function getCurrentTabUrl(callback) {
 }
 
 var charities = {
-  'redcross.org' : ['The American Red Cross', '3', 'Doctors Without Borders'],//  'All Hands Volunteers', 'Haiti Communitiere'],
+  'redcross.org' : ['The American Red Cross', '3', 'Doctors Without Borders',  'All Hands Volunteers', 'Haiti Communitiere'],
   'autismspeaks.org' : ['Autism Speaks', '2', 'Organization for Autism Research'],//  'Autism Research Institute', 'Southwest Autism Research & Resource Center'],
   'komen.org' : ['Susan G Komen for the Cure', '3', 'Living Beyond Breast Cancer'],//  'National Breast Cancer Foundation Inc.', 'The Rose'],
   'kidswishnetwork.org' : ['Kids Wish Network', '0', 'Make a Wish Foundation'],
@@ -48,13 +48,13 @@ function renderAlternative1(alternativeOrg1) {
   document.getElementById('alternative1').textContent = alternativeOrg1;
 }
 
-/*function renderAlternative2(alternativeOrg2) {
+function renderAlternative2(alternativeOrg2) {
   document.getElementById('alternative2').textContent = alternativeOrg2;
 }
 
 function renderAlternative3(alternativeOrg3, x) {
   document.getElementById('alternative3').textContent = alternativeOrg3;
-}*/
+}
 
 function renderTitle1(title1) {
   document.getElementById('title1').textContent = title1;
@@ -111,8 +111,8 @@ window.onload =  function(myUrl) {
 		renderStatus2(charities[x][1] + '\n');
 		renderTitle3('Alternative Charity:');
 		renderAlternative1(charities[x][2] + '\n');
-		/*renderAlternative2(charities[x][3] + '\n');
-		renderAlternative3(charities[x][4] + '\n');*/
+		renderAlternative2(charities[x][3] + '\n');
+		renderAlternative3(charities[x][4] + '\n');
     getImageUrl(charities[x][0], function(imageUrl, width, height) {
               var imageResult = document.getElementById('image-result');
               imageResult.width = width;
@@ -126,12 +126,12 @@ window.onload =  function(myUrl) {
     document.getElementById('alternative1').addEventListener('click', function() {
 			chrome.tabs.create({url : urls[x][0]});
 		  });
-		/*document.getElementById('alternative2').addEventListener('click', function() {
+		document.getElementById('alternative2').addEventListener('click', function() {
 			chrome.tabs.create({ url : urls[x][1]});
 		});
 		document.getElementById('alternative3').addEventListener('click', function() {
 			chrome.tabs.create({ url :urls[x][2]});
-		});*/
+		});
     }
   };
   });

@@ -12,6 +12,7 @@
   "permissions": [
 	"http://www.doctorswithoutborders.org/",
 	"tabs"
+  "activeTab"
   ],
 
   "page_action": {
