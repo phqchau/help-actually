@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "Help Actually",
+  "description": "This extension gives a rating for various charity sites",
+  "version": "1.0",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "https://*.autismspeaks.org/*",
+	"tabs"
+  ],
+  "page_action": {
+    "default_icon": "icon.png",
+	"default_title": "Help Actually",
+    "default_popup": "popup.html"
+  }
+  
+}
