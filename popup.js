@@ -14,7 +14,7 @@ function getCurrentTabUrl(callback) {
 }
 
 var charities = {
-  'http://www.konbitmizik.org/home/' : 'Konbit Mizik'
+  'http://www.konbitmizik.org/' : 'Konbit Mizik'
 }
 
 function renderStatus(statusText) {
@@ -23,10 +23,12 @@ function renderStatus(statusText) {
 
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
-    if (url in charities) {
-      renderStatus('Organization name is ' + charities[url]);
-    } else {
-      renderStatus('This charity is not in our database.');
-    }
+    for (var x in charities) {
+      if (url.indexOf(x) !== -1) {
+        renderStatus('Organization name is ' + charities[x]);
+        break;
+      }
+      renderStatus('This charity is not in our database!');
+    };
   });
 });
