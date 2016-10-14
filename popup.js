@@ -54,6 +54,26 @@ var urls = {
 	'worldwildlife.org' : ['http://www.awildfound.org/', 'http://www.wolf.org/', 'http://www.marinemammalcenter.org/'],
 }
 
+/*function alchemyAPI(input) {
+    $.ajax({
+        type: "POST",
+        url: "/AlchemyLang.py",
+        data: { param: " "},
+        dataType: "text",
+         }).done(function( o ) {
+        console.log("done")
+});
+}
+
+var alchemy = [alchemyAPI(myUrl)];
+
+console.log(alchemyAPI(myUrl))
+
+var articles = {
+  myUrl : alchemy
+};*/
+
+
 var articles = {
 	'redcross.org' : ['NPR', 'http://www.npr.org/2015/06/03/411524156/in-search-of-the-red-cross-500-million-in-haiti-relief', 'Time', 'http://time.com/3908457/red-cross-six-homes-haiti/', 'Huffington Post', 'http://www.huffingtonpost.com/2015/06/04/red-cross-haiti-report_n_7511080.html'],
 }
